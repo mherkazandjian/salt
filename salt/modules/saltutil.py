@@ -1640,13 +1640,16 @@ def cmd(
         The ``expr_form`` argument has been renamed to ``tgt_type``, earlier
         releases must use ``expr_form``.
 
-    Assuming this minion is a master, execute a salt command
+    Assuming this minion is a master, execute a salt command on any other minion
 
     CLI Example:
 
     .. code-block:: bash
 
-        salt '*' saltutil.cmd
+        salt '*' saltutil.cmd <minion> <salt_module>
+        salt a_master saltutil.cmd minion01 pillar.items
+        salt a_master saltutil.cmd minion01 network.connect \
+            kwarg='{"host": "archlinux.org", "port": "80"}'
     """
     cfgfile = __opts__["conf_file"]
     with _get_ssh_or_api_client(cfgfile, ssh) as client:
