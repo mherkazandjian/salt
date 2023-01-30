@@ -1646,7 +1646,7 @@ def cmd(
 
     .. code-block:: bash
 
-        salt '*' saltutil.cmd <minion> <salt_module>
+        salt '*' saltutil.cmd <minion> <salt_module> kwarg='{...}'
         salt a_master saltutil.cmd minion01 pillar.items
         salt a_master saltutil.cmd minion01 network.connect \
             kwarg='{"host": "archlinux.org", "port": "80"}'
